@@ -4,7 +4,6 @@ const Banner = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
     dateStyle: "full",
   });
-  console.log(date);
   return (
     <div className="py-8"> 
       <div className="flex-col flex-col-reverse md:flex-row flex   bg-white container mx-auto rounded-xl p-4 items-center space-y-3">
