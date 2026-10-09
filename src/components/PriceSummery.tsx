@@ -5,6 +5,14 @@ export interface PriceSummeryProps {
 }
 
 export default function PriceSummery({ summery }: PriceSummeryProps) {
+    const minNumber=summery.map((item)=>item.min)
+    const lowarPrce=Math.min(...minNumber)
+    const highNumber=summery.map((item)=>item.max)
+    const highPrice=Math.max(...highNumber)
+    const average=(highPrice+lowarPrce)/2
+    console.log(lowarPrce,"minNumberssss");
+    console.log(highPrice,"highPrice");
+    console.log(average,"average");
   return (
     <div>
       <section className="w-full rounded-[21px] border border-[#dfe6df] bg-[#f9fbf9] p-5 sm:p-6">
@@ -22,7 +30,7 @@ export default function PriceSummery({ summery }: PriceSummeryProps) {
             <p className="text-[30px] font-bold leading-tight text-green-600">
               {" "}
               {}{" "}
-              <span className="ml-1 text-[18px] font-normal"> টাকা </span>{" "}
+              <span className="ml-1 text-[18px] font-normal"> {lowarPrce.toLocaleString("bn-BD")} টাকা </span>{" "}
             </p>{" "}
             <p className="text-[16px] text-[#718073]">
               {" "}
@@ -36,7 +44,7 @@ export default function PriceSummery({ summery }: PriceSummeryProps) {
             <p className="text-[30px] font-bold leading-tight text-red-500">
               {" "}
               {}{" "}
-              <span className="ml-1 text-[18px] font-normal"> টাকা </span>{" "}
+              <span className="ml-1 text-[18px] font-normal"> {highPrice.toLocaleString("bn-BD")}টাকা </span>{" "}
             </p>{" "}
             <p className="text-[16px] text-[#718073]">
               {" "}
@@ -50,7 +58,9 @@ export default function PriceSummery({ summery }: PriceSummeryProps) {
             <p className="text-[30px] font-bold leading-tight text-green-700">
               {" "}
               {" "}
-              <span className="ml-1 text-[18px] font-normal"> টাকা </span>{" "}
+              <span className="ml-1 text-[18px] font-normal"> {average.toLocaleString("bn-BD",{
+                maximumFractionDigits:0,
+              })} টাকা </span>{" "}
             </p>{" "}
             <p className="text-[16px] text-[#718073]">
               {" "}

@@ -1,4 +1,5 @@
 import PriceSummery from "@/components/PriceSummery";
+import ProductTable from "@/components/ProductTable";
 import { MarketType, ProductType } from "@/productsType";
 const unitBn: Record<string, string> = {
   kg: "কেজি",
@@ -103,6 +104,8 @@ const ProductDetailsPage = async ({
        {/* {marketBazar.map((summery,ind:number)=><PriceSummery key={ind} summery={summery}></PriceSummery>)} */}
 
        <PriceSummery summery={marketBazar}></PriceSummery>
+
+       <ProductTable summery={marketBazar}></ProductTable>
       </div>
     </div>
   );

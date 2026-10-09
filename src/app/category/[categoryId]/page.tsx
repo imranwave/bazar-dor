@@ -12,7 +12,6 @@ const ProductCategory = async ({
     `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`,
   );
   const data: ProductType[] = await res.json();
-
   return (
     <div className="container mx-auto">
       {data.slice(0, 1).map((product) => (
@@ -49,31 +48,3 @@ const ProductCategory = async ({
 
 export default ProductCategory;
 
-// heloo
-{
-  /* <div className="p-3 flex items-center justify-center">
-  <div className="w-full  bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm flex items-center gap-4">
-
-    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
-      <Image 
-        src={`https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`}
-        alt="Rice Bowl" 
-        width={500}
-        height={500}
-        className="w-12 h-12 object-contain"
-      />
-    </div>
-
- 
-    <div className="flex flex-col">
-      <h2 className="text-2xl font-bold text-gray-900 leading-tight">
-        চাল
-      </h2>
-      <p className="text-sm font-normal text-gray-500 mt-1">
-        {data.length}টি পণ্যের আজকের দাম ও পরিবর্তন
-      </p>
-    </div>
-  </div>
-</div> */
-}
-// hello
