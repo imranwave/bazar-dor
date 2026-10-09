@@ -1,5 +1,5 @@
-export interface ProductType{
-     id: number;
+export interface ProductType {
+  id: number;
   slug: string;
   nameBn: string;
   category: string;
@@ -11,8 +11,18 @@ export interface ProductType{
   yesterday: number;
   lastWeek: number;
   lastMonth: number;
+
   change: {
-    dir: "up" | "down";
+    dir: "up" | "down" | "flat";
     pct: number;
   };
+
+  markets: MarketType[];
+}
+
+export interface MarketType {
+  market: string;
+  division: string;
+  min: number;
+  max: number;
 }

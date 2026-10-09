@@ -27,13 +27,13 @@ const unitBn: Record<string, string> = {
   price: "টাকা",
 };
 const MarqueeeText = async() => {
-    const res=await fetch('https://api.api-store.workers.dev/api/bazardor/products')
+    const res=await fetch('https://api.abcz.workers.dev/api/bazardor/products')
     const data:IProduct[]=await res.json()
     
     return (
        
         <div className="border py-2 border-gray-100">
-           <MarqueeText direction="right" duration={5} pauseOnHover >
+           <MarqueeText direction="right" duration={10} pauseOnHover >
              {data.map((d)=><span key={d.id}>
                 <span className="mx-5">{d.image} {d.nameBn} {d.today.toLocaleString("bn-BD")} টাকা / {unitBn[d.unit]}</span>
                 <span className={`

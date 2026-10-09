@@ -1,4 +1,5 @@
 import { ProductType } from "@/productsType";
+import Link from "next/link";
 
 export interface AllProductsCardProps {
   product: ProductType;
@@ -12,6 +13,7 @@ const unitBn: Record<string, string> = {
 };
 export default function AllProductsCard({ product }: AllProductsCardProps) {
   return (
+    <Link href={`/cardDetails/${product.id}`}>
     <div key={product.id}>
       <div
         className="
@@ -103,5 +105,7 @@ export default function AllProductsCard({ product }: AllProductsCardProps) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
+

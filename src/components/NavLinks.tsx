@@ -11,9 +11,9 @@ const NavLinks = async() => {
     return (
         <div className="container mx-auto flex-col md:flex-row gap-5 py-3">
             {
-                data.map((d)=><Link key={d.id} href={d.slug}><button className=" hover:bg-gray-300 px-4 py-2 rounded">
-                    {d.nameBn}
+                data.map((d)=><Link key={d.id} href={`/category/${d.slug}`}><button className=" hover:bg-gray-300 px-4 py-2 rounded">
                     {d.icon}
+                    {d.nameBn}
                     </button></Link>)
             }
         </div>
