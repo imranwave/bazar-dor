@@ -51,7 +51,7 @@ export default function ProductTable({ summery }: ProductTableProps) {
                 {item.max} টাকা
               </td>
               <td className="border border-gray-200 px-4 py-3 text-right font-semibold text-green-700">
-                {average} টাকা
+                {average.toLocaleString("bn-BD")} টাকা
               </td>
             </tr>
             )

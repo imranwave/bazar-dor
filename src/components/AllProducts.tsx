@@ -30,7 +30,7 @@ const AllProducts = async () => {
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold">সব পণ্য</h2>
       <p className="font-thin my-2">মোট {data.length} টি পণ্য দেখানো হচ্ছে</p>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {data.map((product) => (
           <AllProductsCard key={product.id} product={product}></AllProductsCard>
         ))}
