@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const UserInfo = () => {
   const { data: session } = authClient.useSession();
@@ -10,6 +11,7 @@ const UserInfo = () => {
   const handleSIngOut = async () => {
     await authClient.signOut();
     window.location.href = "/";
+    toast.success("successfully SignOut!")
   };
   return (
     <div className="container mx-auto">
