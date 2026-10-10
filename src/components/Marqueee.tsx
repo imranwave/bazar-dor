@@ -27,7 +27,7 @@ const unitBn: Record<string, string> = {
   price: "টাকা",
 };
 const MarqueeeText = async() => {
-    const res=await fetch('https://api.api-store.workers.dev/api/bazardor/products')
+    const res=await fetch('https://openapi.programming-hero.com/api/bazardor/products')
     const data:IProduct[]=await res.json()
     
     return (

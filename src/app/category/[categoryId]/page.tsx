@@ -1,7 +1,6 @@
 import AllProductsCard from "@/components/AllProductsCard";
 import { ProductType } from "@/productsType";
 
-
 const ProductCategory = async ({
   params,
 }: {
@@ -9,7 +8,7 @@ const ProductCategory = async ({
 }) => {
   const { categoryId } = await params;
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`,
+    `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`,
   );
   const data: ProductType[] = await res.json();
   return (
@@ -19,7 +18,7 @@ const ProductCategory = async ({
           <div className="p-3 flex items-center justify-center">
             <div className="w-full  bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm flex items-center gap-4">
               <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
-               {product.image}
+                {product.image}
               </div>
 
               <div className="flex flex-col">
@@ -47,4 +46,3 @@ const ProductCategory = async ({
 };
 
 export default ProductCategory;
-

@@ -14,8 +14,9 @@ const ProductDetailsPage = async ({
   params: { cardId: string };
 }) => {
   const { cardId } = await params;
-  const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${cardId}`
+  const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${cardId}`
   );
+
   const data: ProductType = await res.json();
   const marketBazar:MarketType[]=data.markets;
 

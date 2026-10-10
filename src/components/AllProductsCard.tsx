@@ -2,7 +2,7 @@ import { ProductType } from "@/productsType";
 import Link from "next/link";
 
 export interface AllProductsCardProps {
-  product: ProductType;
+  product: Omit<ProductType, "markets">;
 }
 const unitBn: Record<string, string> = {
   kg: "কেজি",

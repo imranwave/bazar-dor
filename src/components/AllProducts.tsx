@@ -1,28 +1,30 @@
+import { ProductType } from "@/productsType";
 import AllProductsCard from "./AllProductsCard";
 
-interface IAllProduct {
-  id: number;
-  slug: string;
-  nameBn: string;
-  category: string;
-  categoryNameBn: string;
-  categoryIcon: string;
-  unit: string;
-  image: string;
-  today: number;
-  yesterday: number;
-  lastWeek: number;
-  lastMonth: number;
-  change: {
-    dir: "up" | "down";
-    pct: number;
-  };
-}
-
+// interface IAllProduct {
+//   id: number;
+//   slug: string;
+//   nameBn: string;
+//   category: string;
+//   categoryNameBn: string;
+//   categoryIcon: string;
+//   unit: string;
+//   image: string;
+//   today: number;
+//   yesterday: number;
+//   lastWeek: number;
+//   lastMonth: number;
+//   change: {
+//     dir: "up" | "down";
+//     pct: number;
+//   };
+// }
 
 const AllProducts = async () => {
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products",);
-  const data: IAllProduct[] = await res.json();
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/bazardor/products",
+  );
+  const data: ProductType[] = await res.json();
 
   return (
     <div className="container mx-auto">
