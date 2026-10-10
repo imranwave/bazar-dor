@@ -1,5 +1,6 @@
 import AllProductsCard from "@/components/AllProductsCard";
 import { ProductType } from "@/productsType";
+import { notFound } from "next/navigation";
 
 const ProductCategory = async ({
   params,
@@ -11,6 +12,7 @@ const ProductCategory = async ({
     `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`,
   );
   const data: ProductType[] = await res.json();
+
   return (
     <div className="container mx-auto">
       {data.slice(0, 1).map((product) => (

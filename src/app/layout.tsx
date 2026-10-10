@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import MarqueeeText from "@/components/Marqueee";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 
 const hindSiliguri = Hind_Siliguri({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <MarqueeeText></MarqueeeText>
         <main>{children}</main>
         <Footer></Footer>
+         <Toaster />
       </body>
     </html>
   );

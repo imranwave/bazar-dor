@@ -1,6 +1,7 @@
 import PriceSummery from "@/components/PriceSummery";
 import ProductTable from "@/components/ProductTable";
 import { MarketType, ProductType } from "@/productsType";
+import { notFound } from "next/navigation";
 const unitBn: Record<string, string> = {
   kg: "কেজি",
   litre: "লিটার",
@@ -19,10 +20,12 @@ const ProductDetailsPage = async ({
 
   const data: ProductType = await res.json();
   const marketBazar:MarketType[]=data.markets;
-
+if(!marketBazar){
+  notFound()
+}
   return (
     <div className="container mx-auto">
-      <h1>link add: {data.category}</h1>
+    
       <div className="w-full rounded-[21px] border border-[#dfe6df] bg-[#f9fbf9] p-6">
         <div className="flex min-h-[176px] items-center justify-between gap-5">
           {/* Left Side */}

@@ -1,23 +1,38 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
-  const onSubmit = async (e:React.SubmitEvent<HTMLElement>) => {
+  const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const user = Object.fromEntries(formData.entries()) as {name:string,email:string,image:string,password:string};
+    const user = Object.fromEntries(formData.entries()) as {
+      name: string;
+      email: string;
+      image: string;
+      password: string;
+    };
     const { data, error } = await authClient.signUp.email({
       ...user,
       callbackURL: "/",
     });
-    if(data){
-        console.log(data);
+    if (data) {
+      toast.success("successfully SingUp!");
     }
-    if(error){
-        console.log(error);
+    if (error) {
+      toast.error("something is went wrong");
     }
- 
+  };
+  const handleSingInWithGoogel = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+  const handelGitHub = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
   };
   return (
     <div className="container mx-auto my-5">
@@ -65,8 +80,16 @@ const SignUpPage = () => {
           </button>
           <div className="divider">অথবা</div>
           <div className="flex gap-2 mx-auto">
-            <button className="btn">google দিয়ে চালিয়ে যান</button>
-            <button className="btn">github দিয়ে চালিয়ে যান</button>
+            <button
+              type="button"
+              onClick={handleSingInWithGoogel}
+              className="btn"
+            >
+              google দিয়ে চালিয়ে যান
+            </button>
+            <button type="button" onClick={handelGitHub} className="btn">
+              github দিয়ে চালিয়ে যান
+            </button>
           </div>
           <p className="text-center my-3 text-md">
             অ্যাকাউন্ট আছে? সাইন ইন করুন
